@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Organic Food Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+
+    <!-- header section starts  -->
+
+    <header>
+
+        <div class="header-1">
+
+            <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>FreshFeed</a>
+
+            <form action="" class="search-box-container">
+                <input type="search" id="search-box" placeholder="search here...">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+        </div>
+
+        <div class="header-2">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="#home" onclick="showHome()">home</a>
+                <a href="#category">category</a>
+                <a href="#product">product</a>
+                <a href="#deal">deal</a>
+                <a href="#contact">contact</a>
+            </nav>
+
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a class="fas fa-user-circle" data-bs-toggle="modal" href="#exampleModalToggle" role="button"></a>
+            </div>
+
+        </div>
+
+        <!-- *****************LOGIN/SIGNUP MODAL******************* -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabel">LOG IN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container d-flex justify-content-around" id="login-form">
+                            <div class="login-form-wrap">
+                                <form class="d-flex flex-column justify-content-around " id="l-form">
+                                    <div>
+                                        <label for="login-email" class="form-label">Email</label>
+                                        <div class="input-group ">
+                                            <input type="text" class="form-control" id="login-email" />
+                                            <div class="invalid-feedback">Please enter a valid email.</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="login-password" class="form-label">Password</label><br>
+                                        <input type="password" class="form-control" id="login-password" required />
+                                        <div class="invalid-feedback">Please provide a valid password.</div>
+                                    </div>
+                                    <div class="d-grid col-8 mx-auto my-4">
+                                        <button class="btn" type="button" onclick="login()">
+                                            Login
+                                        </button>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">New User? Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabel2">Sign Up</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="signup-form">
+                            <form class="row g-3 d-flex justify-content-center" id="s-form">
+                                <div class="col-md-6">
+                                    <label for="first-name" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="first-name" required
+                                        autocomplete="off" />
+                                    <div class="valid-feedback" id="firstValid">Looks good!</div>
+                                    <div class="invalid-feedback" id="firstInvalid">
+                                        Please enter a your name.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="last-name" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" id="last-name" required
+                                        autocomplete="off" />
+                                    <div class="valid-feedback" id="lastValid">Looks good!</div>
+                                    <div class="invalid-feedback" id="lastInvalid">
+                                        Please enter a your last name.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <div class="input-group has-validation">
+                                     
+                                        <input type="text" class="form-control" id="email"
+                                            aria-describedby="inputGroupPrepend" required autocomplete="off" />
+                                        <div class="valid-feedback" id="emailValid">Looks good!</div>
+                                        <div class="invalid-feedback" id="emailInvalid">
+                                            Please enter a valid email.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone-number" class="form-label">Phone Number</label>
+                                    <div class="input-group has-validation">
+                                     
+                                        <input type="text" class="form-control" id="phone-number"
+                                            aria-describedby="inputGroupPrepend" required autocomplete="off" />
+                                        <div class="valid-feedback" id="phoneValid">Looks good!</div>
+                                        <div class="invalid-feedback" id="phoneInvalid">
+                                            Please enter a valid phone number.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" required
+                                        autocomplete="off" />
+                                    <div class="valid-feedback" id="passwordValid">Looks good!</div>
+                                    <div class="invalid-feedback" id="passwordInvalid">
+                                        password must be at least 4 characters.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirm-password" required
+                                        autocomplete="off" />
+                                    <div class="invalid-feedback" id="confirm-password-invalid">
+                                        Password and confirm password don't match.
+                                    </div>
+                                </div>
+                                <div class="d-grid col-8 mx-auto my-4">
+                                    <button class="btn btn-dark" type="button" onclick="signup()">
+                                        Sign Up
+                                    </button>
+                                </div>
+                                <div class="signup-popup " id="signup-popup">
+                                    <div class="text-center ">
+                                        <img class="tick" src="./tickimg.png" alt="">
+                                        <h2 class="text-center"> Thank You!</h2>
+                                        <p class="text-center"> Your details has been successfully submitted.</p>
+                                        <button type="button" class="btn btn-success" onclick="popupRemove()">OK</button>
+                                    </div>
+                                    </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Back to LOG IN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+    <div class="container" id="home">
+
+        <section class="home" id="home">
+
+            <div class="image">
+                <img src="./main-image.jpg" alt="">
+            </div>
+
+            <div class="content">
+                <span>fresh and organic </span>
+                <h3>For you craving health</h3>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+        </section>
+
+        <!-- home section ends -->
+
+        <!-- banner section starts  -->
+
+        <section class="banner-container">
+
+            <div class="banner">
+                <img src="./offer-image2.jpg" alt="">
+                <div class="content">
+                    <h3>special offer on Veggies</h3>
+                    <p>upto 45% off</p>
+                    <a href="#" class="btn">Grab Now</a>
+                </div>
+            </div>
+
+            <div class="banner">
+                <img src="./offer-image1.jpg" alt="">
+                <div class="content">
+                    <h3>Limited Period Grab</h3>
+                    <p>25% off on Juices</p>
+                    <a href="#" class="btn">Grab Now</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- banner section ends -->
+
+        <!-- category section starts  -->
+
+        <section class="category" id="category">
+
+            <h1 class="heading">shop by <span>category</span></h1>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <h3>Veggis Bucket</h3>
+                    <p>upto 30% off</p>
+                    <img src="./banner-image1.jpg" alt="">
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+                <div class="box">
+                    <h3>Hydration Pack</h3>
+                    <p>upto 25% off</p>
+                    <img src="./banner-image2.jpg" alt="">
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+                <div class="box">
+                    <h3>Meat Stick</h3>
+                    <p>upto 60% off</p>
+                    <img src="./banner-image3.jpg" alt="">
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+                <div class="box">
+                    <h3>Fruits Delight</h3>
+                    <p>upto 12% off</p>
+                    <img src="./banner-image4.jpg" alt="">
+                    <a href="#" class="btn">shop now</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- category section ends -->
+
+        <!-- product section starts  -->
+
+        <section class="product" id="product">
+
+            <h1 class="heading">Most <span>Grabbed</span></h1>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <span class="discount">40%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product1.jpg" alt="">
+                    <h3>Fresh Flour</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.28 <span> Rs.30 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /kg </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">25%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product2.jpg" alt="">
+                    <h3>FreshFruit Punch</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.75 <span> Rs.100 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /l </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">20%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product3.jpg" alt="">
+                    <h3>Ocean Fish</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.400 <span> Rs.500 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /kg </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">10%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product4.jpg" alt="">
+                    <h3>100% Halal</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> RS.180 <span> Rs.200 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /kg </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">20%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product5.jpg" alt="">
+                    <h3>Fresh Milk</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.40 <span> Rs.50 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /l </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">30%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product6.jpg" alt="">
+                    <h3>DryFruit Delight</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.175 <span> Rs.250 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /kg </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">55%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product7.jpg" alt="">
+                    <h3>Organic Fruits</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.180 <span> Rs.400 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /kg </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">30%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product8.jpg" alt="">
+                    <h3>Fresh Cheese</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.231 <span> Rs.330 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /kg </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <span class="discount">40%</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="./product9.jpg" alt="">
+                    <h3>Organic veggies</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"> Rs.150 <span> Rs.250 </span> </div>
+                    <div class="quantity">
+                        <span>quantity : </span>
+                        <input type="number" min="1" max="1000" value="1">
+                        <span> /kg </span>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- product section ends -->
+
+        <!-- deal section starts  -->
+
+        <section class="deal" id="deal">
+
+            <div class="content">
+
+                <h3 class="title">deal of the day</h3>
+                <p>Craving but worry about Health,Grab the deal. Hurry Now!!</p>
+
+                <div class="count-down">
+                    <div class="box">
+                        <h3 id="day">00</h3>
+                        <span>day</span>
+                    </div>
+                    <div class="box">
+                        <h3 id="hour">00</h3>
+                        <span>hour</span>
+                    </div>
+                    <div class="box">
+                        <h3 id="minute">00</h3>
+                        <span>minute</span>
+                    </div>
+                    <div class="box">
+                        <h3 id="second">00</h3>
+                        <span>second</span>
+                    </div>
+                </div>
+
+                <a href="#" class="btn">Do a Deal</a>
+
+            </div>
+
+        </section>
+
+        <!-- deal section ends -->
+
+        <!-- contact section starts  -->
+
+        <section class="contact" id="contact">
+
+            <h1 class="heading"> <span>contact</span> us </h1>
+
+            <form action="">
+
+                <div class="inputBox">
+                    <input type="text" placeholder="name">
+                    <input type="email" placeholder="email">
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" placeholder="number">
+                    <input type="text" placeholder="subject">
+                </div>
+
+                <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
+
+                <input type="submit" value="send message" class="btn">
+
+            </form>
+
+        </section>
+
+        <!-- contact section ends -->
+
+        <!-- newsletter section starts  -->
+
+        <section class="newsLatter">
+
+            <h3>subscribe for latest updates</h3>
+
+            <form action="">
+                <input class="box" type="email" placeholder="enter your email">
+                <input type="submit" value="subscribe" class="btn">
+            </form>
+
+        </section>
+
+        <!-- newsletter section ends -->
+
+        <!-- footer section starts  -->
+
+        <section class="footer">
+
+            <div class="box-container">
+
+                <div class="box">
+                    <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>FreshFeed</a>
+                    <p>We serve the health in food with authentic organic food ,direct from farm to offer you delighted meal with low calories and high in healthiness, we are <span>FreshFeed</span> ,we are <span>You</span>.</p>
+                    <div class="share">
+                        <a href="#" class="btn fab fa-facebook-f"></a>
+                        <a href="#" class="btn fab fa-twitter"></a>
+                        <a href="#" class="btn fab fa-instagram"></a>
+                       
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>our location</h3>
+                    <div class="links">
+                        <a href="#">India</a>
+                        <a href="#">Germany</a>
+                        <a href="#">France</a>
+                        <a href="#">Japan</a>
+                        <a href="#">Russia</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>quick links</h3>
+                    <div class="links">
+                        <a href="#">home</a>
+                        <a href="#">category</a>
+                        <a href="#">product</a>
+                        <a href="#">deal</a>
+                        <a href="#">contact</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>download app</h3>
+                    <div class="links">
+                        <a href="#">google play</a>
+                        <a href="#">window xp</a>
+                        <a href="#">app store</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <h1 class="credit"> created by <span> Shubham Singh</span>  </h1>
+
+        </section>
+
+        <!-- footer section ends -->
+
+
+    </div>
+
+
+    <!-- custom js file link  -->
+    <script src="script.js"></script> 
+    <script src="index.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
